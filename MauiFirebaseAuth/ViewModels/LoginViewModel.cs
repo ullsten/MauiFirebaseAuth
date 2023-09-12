@@ -6,14 +6,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Microsoft.Extensions.Configuration;
+using MauiFirebaseAuth.Data;
 
 namespace MauiFirebaseAuth.ViewModels
 {
    
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        private readonly string webApiKey = "AIzaSyB9iXKXm0VzRAhjzPQDPqF4-1Mka007A7s";
-
         private readonly INavigation _navigation;
         private string userName;
         private string userPassword;
@@ -41,15 +42,18 @@ namespace MauiFirebaseAuth.ViewModels
                 RaisePropertyChanged(UserPassword);
             }
         }
-        public LoginViewModel(INavigation navigation)
+        public LoginViewModel(INavigation navigation )
         {
             _navigation = navigation;
             RegisterBtn = new Command(RegisterBtnTappedAsync);
             LoginBtn = new Command(LoginBtnTappedAsync);
         }
 
+
         private async void LoginBtnTappedAsync(object obj)
         {
+            string webApiKey = SecretsManager.GetWebApiKey();
+
             var authProvder = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
             try
             {

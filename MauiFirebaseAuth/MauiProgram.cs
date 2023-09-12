@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DotNetEnv;
+using MauiFirebaseAuth.Models;
+using Microsoft.Extensions.Logging;
 
 namespace MauiFirebaseAuth
 {
@@ -7,6 +9,9 @@ namespace MauiFirebaseAuth
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
+            Env.Load();
+
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

@@ -1,5 +1,6 @@
 ﻿
 using Firebase.Auth;
+using MauiFirebaseAuth.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +12,6 @@ namespace MauiFirebaseAuth.ViewModels
 {
     internal class RegisterViewModel : INotifyPropertyChanged
     {
-        private readonly string webApiKey = "AIzaSyB9iXKXm0VzRAhjzPQDPqF4-1Mka007A7s";
-
         private INavigation _navigation;
         private string email;
         private string password;
@@ -54,8 +53,9 @@ namespace MauiFirebaseAuth.ViewModels
         {
             try
             {
-                //var testEmail = Email;
-                //var testPassword = Password;
+                //Get apiKey
+                string webApiKey = SecretsManager.GetWebApiKey();
+            
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
                 var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(Email, Password);
                 string token = auth.FirebaseToken;
