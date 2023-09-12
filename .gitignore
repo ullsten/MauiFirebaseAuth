@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MauiFirebaseAuth/secrets.json
+/MauiFirebaseAuth/.env
+/MauiFirebaseAuth/secrets.json
+/MauiFirebaseAuth/appsettings.json
