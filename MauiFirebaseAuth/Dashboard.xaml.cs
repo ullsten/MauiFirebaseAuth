@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace MauiFirebaseAuth
         public Dashboard()
         {
             InitializeComponent();
+            GetProfileInfo();
+        }
+
+        private void GetProfileInfo()
+        {
+            var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
+            UserEmail.Text = userInfo.User.Email;
+            
         }
     }
 }
