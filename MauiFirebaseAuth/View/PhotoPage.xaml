@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiFirebaseAuth.PhotoPage"
+             Title="PhotoPage">
+    <VerticalStackLayout>
+        <Label 
+            Margin="0,30,0,50"
+            Text="Photo album"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Button
+            Margin="0,0,0,5"
+            Text="Back to Dashboard" 
+            HorizontalOptions="Center" 
+            VerticalOptions="Center"
+            Clicked="Button_Clicked"/>
+        
+        <Button 
+           
+            Text="Go to upload Photo" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                Clicked="Button_Clicked_1"/>
+    </VerticalStackLayout>
+</ContentPage>

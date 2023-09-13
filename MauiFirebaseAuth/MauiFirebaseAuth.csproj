@@ -67,8 +67,14 @@
 	  <MauiXaml Update="Dashboard.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\PhotoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="RegisterPage.xaml">
 	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\UploadPhoto.xaml">
+	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 

@@ -23,7 +23,11 @@ namespace MauiFirebaseAuth
         {
             var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
             UserEmail.Text = userInfo.User.Email;
-            
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PhotoPage()); 
         }
     }
 }

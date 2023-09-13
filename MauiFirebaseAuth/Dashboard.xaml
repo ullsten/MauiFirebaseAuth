@@ -11,6 +11,13 @@
                 x:Name="UserEmail"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button 
+                Margin="30"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                Text="Photo button" 
+                Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
