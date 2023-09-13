@@ -64,13 +64,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Dashboard.xaml">
+	  <MauiXaml Update="View\Dashboard.xaml">
 	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\NotePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\PhotoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="RegisterPage.xaml">
+	  <MauiXaml Update="View\RegisterPage.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\UploadPhoto.xaml">

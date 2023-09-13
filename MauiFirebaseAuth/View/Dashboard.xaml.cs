@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MauiFirebaseAuth.View;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,10 @@ namespace MauiFirebaseAuth
         private void Button_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new PhotoPage()); 
+        }
+        private void Button_Note(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotePage());
         }
     }
 }
