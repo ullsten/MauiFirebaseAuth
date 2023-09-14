@@ -9,7 +9,6 @@ namespace MauiFirebaseAuth.Models
     public class NoteItem
     {
         public string Id { get; set; }
-        public string NoteId { get; set; }
         public DateTime NoteDate { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
