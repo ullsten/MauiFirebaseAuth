@@ -1,4 +1,6 @@
-﻿namespace MauiFirebaseAuth
+﻿using MauiFirebaseAuth.View;
+
+namespace MauiFirebaseAuth
 {
     public partial class App : Application
     {
@@ -8,5 +10,6 @@
 
             MainPage = new NavigationPage (new MainPage());
         }
+
     }
 }

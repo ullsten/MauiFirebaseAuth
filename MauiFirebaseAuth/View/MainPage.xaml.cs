@@ -1,4 +1,5 @@
-﻿using MauiFirebaseAuth.ViewModels;
+﻿using MauiFirebaseAuth.View;
+using MauiFirebaseAuth.ViewModels;
 
 namespace MauiFirebaseAuth
 {
@@ -7,7 +8,12 @@ namespace MauiFirebaseAuth
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel(Navigation);
+            //BindingContext = new LoginViewModel(Navigation);
+        }
+        
+        private void Button_Login(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
         }
     }
 
