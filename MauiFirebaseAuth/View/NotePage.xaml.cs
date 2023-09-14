@@ -9,8 +9,6 @@ namespace MauiFirebaseAuth.View;
 
 public partial class NotePage : ContentPage
 {
-    //AppSettings settings = SecretsManager.GetAppSettings();
-    //"https://mauitestproject-b5590-default-rtdb.europe-west1.firebasedatabase.app/"
     static string firebaseDbUrl = SecretsManager.GetAppSettings().FirebaseDbUrl;
 
     FirebaseClient firebaseClient = new FirebaseClient(firebaseDbUrl);
