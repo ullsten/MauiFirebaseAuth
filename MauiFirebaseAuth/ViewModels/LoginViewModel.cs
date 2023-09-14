@@ -15,6 +15,7 @@ namespace MauiFirebaseAuth.ViewModels
    
     internal class LoginViewModel : INotifyPropertyChanged
     {
+        
         private readonly INavigation _navigation;
         private string userName;
         private string userPassword;
@@ -52,7 +53,9 @@ namespace MauiFirebaseAuth.ViewModels
 
         private async void LoginBtnTappedAsync(object obj)
         {
-            string webApiKey = SecretsManager.GetWebApiKey();
+            //string webApiKey = SecretsManager.GetWebApiKey();
+            AppSettings settings = SecretsManager.GetAppSettings();
+            string webApiKey = settings.WebApiKey;
 
             var authProvder = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
             try

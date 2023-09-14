@@ -1,28 +1,27 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using MauiFirebaseAuth.Models; // Import your custom models namespace
 
 namespace MauiFirebaseAuth.Data
 {
     public class SecretsManager
     {
-        public static string GetWebApiKey()
+        public static AppSettings GetAppSettings()
         {
             try
             {
                 var assembly = typeof(SecretsManager).Assembly;
                 var resourceName = "MauiFirebaseAuth.appsettings.json";
 
-                using(Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
-                    using(StreamReader reader = new StreamReader(stream))
+                    using (StreamReader reader = new StreamReader(stream))
                     {
                         string json = reader.ReadToEnd();
-                        dynamic secrets = JsonConvert.DeserializeObject<dynamic>(json);
-                        return secrets.WebApiKey;
+                        AppSettings settings = JsonConvert.DeserializeObject<AppSettings>(json);
+                        return settings;
                     }
                 }
             }

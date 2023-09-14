@@ -1,5 +1,6 @@
 using Firebase.Database;
 using Firebase.Database.Query;
+using MauiFirebaseAuth.Data;
 using MauiFirebaseAuth.Models;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
@@ -8,7 +9,11 @@ namespace MauiFirebaseAuth.View;
 
 public partial class NotePage : ContentPage
 {
-    FirebaseClient firebaseClient = new FirebaseClient("https://mauitestproject-b5590-default-rtdb.europe-west1.firebasedatabase.app/");
+    //AppSettings settings = SecretsManager.GetAppSettings();
+    //"https://mauitestproject-b5590-default-rtdb.europe-west1.firebasedatabase.app/"
+    static string firebaseDbUrl = SecretsManager.GetAppSettings().FirebaseDbUrl;
+
+    FirebaseClient firebaseClient = new FirebaseClient(firebaseDbUrl);
     public ObservableCollection<NoteItem> NoteItems { get; set; } = new ObservableCollection<NoteItem>();
 
     public NotePage()
@@ -54,7 +59,10 @@ public partial class NotePage : ContentPage
     {
         firebaseClient.Child("Note").PostAsync(new NoteItem
         {
+            NoteDate = DateTime.Now.ToLocalTime(),
             Title = TitleEntry.Text,
+
+
         });
 
         TitleEntry.Text = string.Empty;

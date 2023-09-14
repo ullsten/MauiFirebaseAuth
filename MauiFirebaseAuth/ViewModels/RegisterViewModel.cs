@@ -54,8 +54,9 @@ namespace MauiFirebaseAuth.ViewModels
             try
             {
                 //Get apiKey
-                string webApiKey = SecretsManager.GetWebApiKey();
-            
+                AppSettings settings = SecretsManager.GetAppSettings();
+                string webApiKey = settings.WebApiKey;
+
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
                 var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(Email, Password);
                 string token = auth.FirebaseToken;
