@@ -55,14 +55,22 @@ public partial class NotePage : ContentPage
     
     private void Button_SaveNote(object sender, EventArgs e)
     {
-        firebaseClient.Child("Note").PostAsync(new NoteItem
+        string title = TitleEntry.Text;
+        if(string.IsNullOrEmpty(title))
         {
-            NoteDate = DateTime.Now.ToLocalTime(),
-            Title = TitleEntry.Text,
+            ValidationLabel.Text = "Title is required";
+        }
+        else
+        {
+            firebaseClient.Child("Note").PostAsync(new NoteItem
+            {
+                NoteDate = DateTime.Now.ToLocalTime(),
+                Title = TitleEntry.Text,
+            });
 
-
-        });
-
-        TitleEntry.Text = string.Empty;
+            TitleEntry.Text = string.Empty;
+            ValidationLabel.Text = string.Empty;
+        }
+        
     }
 }

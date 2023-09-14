@@ -23,16 +23,23 @@
 
         <Entry 
             x:Name="TitleEntry" 
-            Placeholder="add note..."
-            Margin="0,40,0,0"/>
+            Placeholder="Add note..."
+            Margin="0,40,0,0"
+        />
+
+        <Label x:Name="ValidationLabel" TextColor="Red"/>
 
         <CollectionView ItemsSource="{Binding NoteItems}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding Title}"/>
+                    <StackLayout>
+                        <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                        <Label Text="{Binding NoteDate, StringFormat='Date: {0:yyyy-MM-dd HH:mm:ss}'}" />
+                    </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
 
         <Button 
             Margin="0,10,0,0"
