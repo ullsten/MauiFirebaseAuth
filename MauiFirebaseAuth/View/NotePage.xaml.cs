@@ -30,6 +30,7 @@ public partial class NotePage : ContentPage
                 {
                     NoteItems.Add(item.Object);
                     item.Object.Id = item.Key;
+                    
                 }
                 
             });
@@ -84,9 +85,6 @@ public partial class NotePage : ContentPage
             // Use PostAsync to add the newNote to the Firebase database
             var response = await firebaseClient.Child("Note").PostAsync(newNote);
 
-            // Store the generated Firebase ID in the Id property
-            //newNote.Id = response.Key;
-
             // Clear the TitleEntry and ValidationLabel as before
             TitleEntry.Text = string.Empty;
             DescriptionEntry.Text = string.Empty;
@@ -94,10 +92,10 @@ public partial class NotePage : ContentPage
         }
     }
 
-
-    private async void Button_DeleteNote(object sender, EventArgs e)
+    private async void Button_Image(object sender, EventArgs e)
     {
-       var button = (Button)sender;
+       
+        var button = (ImageButton)sender;
 
         if(button.CommandParameter is string id)
         {
@@ -108,11 +106,13 @@ public partial class NotePage : ContentPage
                 await firebaseClient.Child("Note").Child(id).DeleteAsync();
 
                 var noteToRemove = NoteItems.FirstOrDefault(x => x.Id == id);
-                if(noteToRemove != null)
+
+                if (noteToRemove != null)
                 {
                     NoteItems.Remove(noteToRemove);
                 }
             }
         }
+       
     }
 }

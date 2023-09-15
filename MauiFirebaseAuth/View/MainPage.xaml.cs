@@ -8,12 +8,16 @@ namespace MauiFirebaseAuth
         public MainPage()
         {
             InitializeComponent();
-            //BindingContext = new LoginViewModel(Navigation);
         }
         
         private void Button_Login(object sender, EventArgs e)
         {
             Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void Button_Note(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NotePage()); 
         }
     }
 

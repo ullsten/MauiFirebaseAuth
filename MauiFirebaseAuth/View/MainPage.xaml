@@ -23,7 +23,12 @@
                 Margin="0,10"
                 Text="Login"
                 Clicked="Button_Login"
-            />
-            </StackLayout>
+                />
+
+            <Button
+                    Margin="0,10"
+                    Text="Add note"
+                    Clicked="Button_Note"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

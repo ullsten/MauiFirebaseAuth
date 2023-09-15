@@ -38,7 +38,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Horizontal">
-                        
+
                         <StackLayout>
                             <Label FontAttributes="Bold" TextColor="DarkGreen">
                                 <Label.FormattedText>
@@ -68,26 +68,14 @@
                                 </Label.FormattedText>
                             </Label>
                         </StackLayout>
-
-
                         <!-- Add a Delete button -->
-                        <Button 
-                            Text="Delete" 
-                            Clicked="Button_DeleteNote" 
-                            CommandParameter="{Binding Id}" 
-                            HeightRequest="40" 
-                            WidthRequest="80"
-                            BackgroundColor="red">
-                            
-                        </Button>
-                        
-                        
-                        <!--<ImageButton 
+                        <ImageButton 
                             Source="delete_icon_red"
-                            Clicked="Button_DeleteNote" 
+                            Clicked="Button_Image" 
                             CommandParameter="{Binding Id}"
-                            HeightRequest="20"
-                            WidthRequest="20"/>-->
+                            HeightRequest="50"
+                            WidthRequest="50">
+                        </ImageButton>
 
                     </StackLayout>
                 </DataTemplate>

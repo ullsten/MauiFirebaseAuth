@@ -1,4 +1,5 @@
-﻿using DotNetEnv;
+﻿using CommunityToolkit.Maui.Markup;
+using DotNetEnv;
 using MauiFirebaseAuth.Models;
 using Microsoft.Extensions.Logging;
 
@@ -9,8 +10,9 @@ namespace MauiFirebaseAuth
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            builder.UseMauiApp<App>().UseMauiCommunityToolkitMarkup();
 
-            Env.Load();
+            //Env.Load();
 
             builder
                 .UseMauiApp<App>()
