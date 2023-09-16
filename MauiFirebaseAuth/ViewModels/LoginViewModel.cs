@@ -24,6 +24,7 @@ namespace MauiFirebaseAuth.ViewModels
 
         public Command RegisterBtn { get; }
         public Command LoginBtn { get; }
+        public Command LogoutBtn { get; }
 
         public string UserName 
         { 
@@ -48,12 +49,12 @@ namespace MauiFirebaseAuth.ViewModels
             _navigation = navigation;
             RegisterBtn = new Command(RegisterBtnTappedAsync);
             LoginBtn = new Command(LoginBtnTappedAsync);
+            LogoutBtn = new Command(LogoutBtnTappedAsync);
         }
 
 
         private async void LoginBtnTappedAsync(object obj)
         {
-            //string webApiKey = SecretsManager.GetWebApiKey();
             AppSettings settings = SecretsManager.GetAppSettings();
             string webApiKey = settings.WebApiKey;
 
@@ -70,7 +71,6 @@ namespace MauiFirebaseAuth.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "Ok");
             }
-            //await _navigation.PushAsync(new Dashboard());
         }
 
         private async void RegisterBtnTappedAsync(object obj)
@@ -80,6 +80,22 @@ namespace MauiFirebaseAuth.ViewModels
         private void RaisePropertyChanged(string v)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
+        }
+
+        private async void LogoutBtnTappedAsync(object obj)
+        {
+            // Clear the Firebase token or any other session-related data here
+            Preferences.Remove("FreshFirebaseToken");
+
+            //AppSettings settings = SecretsManager.GetAppSettings();
+            //string webApiKey = settings.WebApiKey;
+            // You can also sign out from Firebase Authentication, if applicable
+            // For example, if you're using Firebase Authentication with email/password, you can sign out like this:
+            //var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
+            //await authProvider.SignOutAsync();
+
+            // Navigate back to the login page or any other desired page
+            await _navigation.PopToRootAsync(); // This example assumes you want to go back to the root page
         }
     }
 }
